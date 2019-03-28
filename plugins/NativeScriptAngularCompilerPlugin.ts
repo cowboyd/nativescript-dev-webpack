@@ -1,4 +1,4 @@
-import { parse, sep } from "path";
+import { parse, join } from "path";
 import { AngularCompilerPlugin } from "@ngtools/webpack";
 
 export function getAngularCompilerPlugin(platform: string): any {
@@ -14,7 +14,7 @@ export function getAngularCompilerPlugin(platform: string): any {
             try {
                 if (platform) {
                     const parsed = parse(file);
-                    const platformFile = parsed.dir + sep + parsed.name + "." + platform + parsed.ext;
+                    const platformFile = join(parsed.dir, `${parsed.name}.${platform}${parsed.ext}`);
                     return super.getCompiledFile(platformFile);;
                 }
             }

@@ -54,7 +54,7 @@ module.exports = env => {
     const appFullPath = resolve(projectRoot, appPath);
     const appResourcesFullPath = resolve(projectRoot, appResourcesPath);
     const tsConfigName = "tsconfig.tns.json";
-    const entryModule = `${nsWebpack.getEntryModule(appFullPath)}.ts`;
+    const entryModule = `${nsWebpack.getEntryModule(appFullPath, platform)}.ts`;
     const entryPath = `.${sep}${entryModule}`;
     const entries = { bundle: entryPath };
     if (platform === "ios") {
